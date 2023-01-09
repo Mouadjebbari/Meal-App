@@ -21,7 +21,9 @@ body {
 
 /* header navbar */
 #nav {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 /* header search bar section */
@@ -34,9 +36,9 @@ body {
     border-radius: 20px;
 }
 
-
 /* meal card */
 #card {
+    display: flex;
     background-color: #ffb80e;
     padding: 10px;
     color: white;
@@ -50,20 +52,27 @@ body {
 
 /* meal details container */
 #meal-details{
-    width: 100%;
-    padding: 20px;
+    width: 80%;
+  margin-top: 9px;
+    padding: 10px;
+    margin-left: 121px;
     border-radius: 20px;
     background-color:#ffb80e ;
+    position: fixed;
+    z-index: 2456;
 }
+
 #meal-header{
     width: 70%;
     margin: auto;
 }
+
 #meal-thumbail img{
     height: 250px;
     width: 250px;
     border-radius: 50%;
 }
+
 #details{
     display: flex;
     flex-direction: column;
@@ -71,6 +80,7 @@ body {
     justify-content: center;
     font-style: italic;
 }
+
 #meal-instruction{
     margin: auto;
     text-align: center;
@@ -78,8 +88,3 @@ body {
 
 
 
-
-/* favourites offcanvus */
-#favourites-body{
-    background-color:#212529 ;
-}
