@@ -1,11 +1,11 @@
 
 
 // its fetch meals from api and return it
-async function fetchMealsFromApi(url,value) {
-    const response=await fetch(`${url+value}`);
-    const meals=await response.json();
-    return meals;
-}
+    async function fetchMealsFromApi(url,value) {
+        const response=await fetch(`${url+value}`);
+        const meals=await response.json();
+        return meals;
+    }
 
 
 
@@ -124,70 +124,17 @@ function showMealList(){
             </div>
                 `
             ;
-            }else {
-                html += `
-                <div class="page-wrap d-flex flex-row align-items-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-12 text-center">
-                                <div class="mb-4 lead" style=">
-                                Le repas que vous recherchez n'a pas été trouvé.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                `;
             }
             document.getElementById("main").innerHTML += html
         }}
         getData();
+
+        // btn close
         var btn_close = document.getElementById('btn-close');
         function clospopu(){
             document.getElementById("meal-details").style.display = 'none';
         };
 
-            // teeeeeeest
 
-            function showMealList(){
-                let inputValue = document.getElementById("my-search").value;
-                let url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`;
-                let meals = fetchMealsFromApi(url);
-                meals.then(data => {
-                    if (data.meals) {
-                        let mealsToDisplay = data.meals.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-                        let html = "";
-                        mealsToDisplay.forEach((element) => {
-                            html += `
-                            <div id="card" class="card mb-3" style="width: 20rem;">
-                                <img src="${element.strMealThumb}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">${element.strMeal}</h5>
-                                    <div class="d-flex justify-content-between mt-5">
-                                        <button type="button" class="btn btn-outline-light" onclick="showMealDetails(${element.idMeal})">Details</button>
-                                    </div>
-                                </div>
-                            </div>
-                            `;
-                        });
-                        document.getElementById("main").innerHTML = html;
-                        renderPagination(); 
-                    } else { 
-                        let html = `
-                        <div class="page-wrap d-flex flex-row align-items-center">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-md-12 text-center">
-                                        <div class="mb-4 lead" style="">
-                                            Le repas que vous recherchez n'a pas été trouvé.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        `;
-                        document.getElementById("main").innerHTML = html;
-                    }
-                });
-            }
-            
+
+                
