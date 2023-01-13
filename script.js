@@ -1,14 +1,9 @@
-
-
 // its fetch meals from api and return it
     async function fetchMealsFromApi(url,value) {
         const response=await fetch(`${url+value}`);
         const meals=await response.json();
         return meals;
     }
-
-
-
 // its show's all meals card in main acording to search input value
 function showMealList(){
     let inputValue = document.getElementById("my-search").value;
@@ -20,14 +15,13 @@ function showMealList(){
             data.meals.forEach((element) => {
                 let isFav=false;
                 if (isFav) {
-                    html += `
-                <div id="card" class="card mb-3" style="width: 20rem;">
+                html += `
+                    <div id="card" class="card mb-3" style="width: 20rem;">
                     <img src="${element.strMealThumb}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">${element.strMeal}</h5>
                         <div class="d-flex justify-content-between mt-5">
                             <button type="button" class="btn btn-outline-light" onclick="showMealDetails(${element.idMeal})">Details</button>
-                            
                         </div>
                     </div>
                 </div>
@@ -65,17 +59,12 @@ function showMealList(){
         document.getElementById("main").innerHTML = html;
     });
 }
-
-
-
     //its shows full meal details in main
     async function showMealDetails(id) {
         let url="https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
         let html="";
-
         await fetchMealsFromApi(url,id).then(data=>{
             html += `
-            
             <button type="button "  onclick="clospopu()" id='btn_close' class="btn-close"></button>
                 <div id="meal-header" class="d-flex justify-content-around flex-wrap">
                 <div id="meal-thumbail">
@@ -100,16 +89,12 @@ function showMealList(){
         document.getElementById("meal-details").innerHTML=html;
         document.getElementById("meal-details").style.display = 'block';
     }
-
-    // document.querySelector('.btn-close').
-
         // // Fetch data from rest api
     async function getData() {
         for(let i = 0; i < 6; i++) {
             const response = await fetch("https://www.themealdb.com/api/json/v1/1/random.php")
             const data = await response.json();
             dataList = data.meals[0];
-
             if (data.meals) {
                 html = `
                 <div id="card" class="card mb-3" style="width: 20rem;">
@@ -128,13 +113,8 @@ function showMealList(){
             document.getElementById("main").innerHTML += html
         }}
         getData();
-
         // btn close
         var btn_close = document.getElementById('btn-close');
         function clospopu(){
             document.getElementById("meal-details").style.display = 'none';
         };
-
-
-
-                
